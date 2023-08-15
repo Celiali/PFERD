@@ -7,7 +7,7 @@ from aitviewer.renderables.spheres import Spheres
 from utils.smal import SMALLayer, HSMAL
 from utils.readfile import read_mocap,read_results
 
-def  find_id(missing, data_length, start, end, downSample):
+def find_id(missing, data_length, start, end, downSample):
     enabled_frames = np.ones(data_length, dtype=np.bool8)
     if len(missing) != 0 :
         enabled_frames[missing] = 0
@@ -24,7 +24,7 @@ def  find_id(missing, data_length, start, end, downSample):
         return downSample_enable_frame, id_
 
 
-def Load_Visualization(ID=1, mocapname='20201128_ID_1_0004', start=None, end = None,downSample = 1, VISUAL_MOCAP = False, num_betas = 10):
+def Load_Visualization(ID=1, mocapname='20201128_ID_1_0008', start=None, end = None,downSample = 1, VISUAL_MOCAP = False, num_betas = 10):
     results_path = os.path.join(CONFIG.DatasetPATH, f'ID_{ID}', 'MODEL_DATA', f'{mocapname}_hsmal.npz')
     data = read_results(results_path)
     data_length = data['trans'].shape[0]
@@ -83,8 +83,8 @@ def Load_Visualization(ID=1, mocapname='20201128_ID_1_0004', start=None, end = N
 def parse_augment():
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument("--ID", type=int, default=5)
-    parser.add_argument("--mocapname", type=str, default='20201129_ID_5_0009')
+    parser.add_argument("--ID", type=int, default=1)
+    parser.add_argument("--mocapname", type=str, default='20201128_ID_1_0008')
     parser.add_argument("--start", type=int, default=None)
     parser.add_argument("--end", type=int, default=None)
     parser.add_argument("--downSample", type=int, default=8, help='mocap framerate 240hz, downsample the mocap data')

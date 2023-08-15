@@ -22,7 +22,7 @@ def cal_iou( mask_pred, M_gt):
     IOU = np.sum(M_gt * mask_pred) / (np.sum(M_gt) + np.sum(mask_pred) - np.sum(M_gt * mask_pred))
     return IOU
 
-def eval_iou(ID=1, mocapname = '20201128_ID_1_0004', VISUAL = True):
+def eval_iou(ID=1, mocapname = '20201128_ID_1_0008', VISUAL = True):
     # load hSMAL results
     results_path = os.path.join(CONFIG.DatasetPATH, f'ID_{ID}', 'MODEL_DATA', f'{mocapname}_hsmal.npz')
     resultsdata = read_results(results_path)
@@ -102,7 +102,7 @@ def parse_augment():
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("--ID", type=int, default=1)
-    parser.add_argument("--mocapname", type=str, default='20201128_ID_1_0004')
+    parser.add_argument("--mocapname", type=str, default='20201128_ID_1_0008')
     parser.add_argument('--VISUAL', action='store_true', help='Whether visualizing')
     args = parser.parse_args()
     return args

@@ -3,7 +3,7 @@ import os
 import numpy as np
 import glob
 import cv2
-from moshpp_interface.tools_mocap_interface import MocapSession
+from moshpp.tools.mocap_interface import MocapSession
 
 def read_mocap(mocap_fname):
     mocap = MocapSession(mocap_fname=mocap_fname,

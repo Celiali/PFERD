@@ -7,6 +7,8 @@ A dataset of horse motion capture in outdoor environments. The data can be acces
 ## Installation
 
 ``` bash
+git clone --recurse-submodules https://github.com/Celiali/test.git
+
 # 1. Create a conda virtual environment.
 conda create -n DenseMocap python=3.7
 conda activate DenseMocap
@@ -32,8 +34,6 @@ pip install git+https://github.com/nghorbani/body_visualizer.git
 The codes are tested in Python3.7, Pytorch 1.8.2, Aitviewer v1.9.0 for Ubuntu 18.0
 
 Installation of `psbody.smpl` and `psbody.mesh`, please check [SOMA](https://github.com/nghorbani/soma).
-
-Installation of `moshpp`, please check [moshpp](https://github.com/nghorbani/moshpp).
 
 
 ## Fetch model

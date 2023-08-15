@@ -1,6 +1,4 @@
 import CONFIG
-import sys
-sys.path.append(CONFIG.AitviewerPATH)
 import numpy as np
 import smplx
 import torch

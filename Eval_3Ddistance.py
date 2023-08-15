@@ -6,11 +6,11 @@ from psbody.mesh import Mesh,MeshViewer
 from psbody.mesh.sphere import Sphere
 from psbody.mesh.lines import Lines
 from body_visualizer.mesh.psbody_mesh_sphere import points_to_spheres
-from moshpp_interface.models_bodymodel_loader import load_moshpp_models
-from moshpp_interface.transformed_lm import TransformedCoeffs,TransformedLms
+from moshpp.models.bodymodel_loader import load_moshpp_models
+from moshpp.transformed_lm import TransformedCoeffs,TransformedLms
 from utils.readfile import read_results, read_mocap
 
-def eval_3ddistance(ID=1, mocapname = '20201128_ID_1_0004', VISUAL = True):
+def eval_3ddistance(ID=1, mocapname = '20201128_ID_1_0008', VISUAL = True):
     # load hSMAL results
     results_path = os.path.join(CONFIG.DatasetPATH, f'ID_{ID}', 'MODEL_DATA', f'{mocapname}_hsmal.npz')
     resultsdata = read_results(results_path)
@@ -93,11 +93,11 @@ def parse_augment():
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("--ID", type=int, default=1)
-    parser.add_argument("--mocapname", type=str, default='20201128_ID_1_0004')
+    parser.add_argument("--mocapname", type=str, default='20201128_ID_1_0008')
     parser.add_argument('--VISUAL', action='store_true', help='Whether visualizing')
     args = parser.parse_args()
     return args
 
 if __name__ == '__main__':
     args = parse_augment()
-    eval_3ddistance(ID=args.ID, mocapname=args.mocapname, VISUAL=True)#args.VISUAL)
+    eval_3ddistance(ID=args.ID, mocapname=args.mocapname, VISUAL=args.VISUAL)

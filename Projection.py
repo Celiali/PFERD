@@ -10,7 +10,7 @@ from utils.project import get_cams_renderers, reproject_masks, reproject_keypoin
 from human_body_prior.body_model.body_model import BodyModel
 from human_body_prior.tools.omni_tools import copy2cpu as c2c
 
-def projection(ID=1, mocapname = '20201128_ID_1_0004', cameraID = None, start=None, end = None, VISUAL = True, VISUAL_MOCAP = True):
+def projection(ID=1, mocapname = '20201128_ID_1_0008', cameraID = None, start=None, end = None, VISUAL = True, VISUAL_MOCAP = True):
     # load hSMAL results
     results_path = os.path.join(CONFIG.DatasetPATH, f'ID_{ID}', 'MODEL_DATA', f'{mocapname}_hsmal.npz')
     resultsdata = read_results(results_path)
@@ -90,8 +90,8 @@ def projection(ID=1, mocapname = '20201128_ID_1_0004', cameraID = None, start=No
 def parse_augment():
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument("--ID", type=int, default=2)
-    parser.add_argument("--mocapname", type=str, default='20201128_ID_2_0007')
+    parser.add_argument("--ID", type=int, default=1)
+    parser.add_argument("--mocapname", type=str, default='20201128_ID_1_0008')
     parser.add_argument("--cameraID", type=str, default=None, help='None, 20715, 21386, 23348, 23350, 23414, 23415, 23416, 23417, 23603, 23604')
     parser.add_argument("--start", type=int, default=None)
     parser.add_argument("--end", type=int, default=None)
@@ -102,5 +102,5 @@ def parse_augment():
 
 if __name__ == '__main__':
     args = parse_augment()
-    projection(ID =args.ID, mocapname = args.mocapname, cameraID = None, start= args.start, end = args.end, VISUAL = args.VISUAL, VISUAL_MOCAP = args.VISUAL_MOCAP)
+    projection(ID =args.ID, mocapname = args.mocapname, cameraID = args.cameraID, start= args.start, end = args.end, VISUAL = args.VISUAL, VISUAL_MOCAP = args.VISUAL_MOCAP)
 
