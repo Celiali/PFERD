@@ -1,0 +1,3 @@
+[submodule "moshpp"]
+	path = moshpp
+	url = https://github.com/nghorbani/moshpp.git
