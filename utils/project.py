@@ -19,7 +19,7 @@ def get_cams_renderers(cam_path, cameraID = None):
     return cams_list, renderer_list
 
 
-def reproject_masks(vertex, faces, renderer_list, cams_list, cameraID = None, imgs = None, missingframe = False, obtainSil=False):
+def reproject_masks(vertex, faces, renderer_list, cams_list, cameraID = None, imgs = None, obtainSil=False):
     '''
     Code adapted from https://github.com/marcbadger/avian-mesh
     Args:
@@ -64,8 +64,7 @@ def reproject_masks(vertex, faces, renderer_list, cams_list, cameraID = None, im
             img= imgs[i, :, :, ::-1].copy()
         renderer = renderer_list[cams_keys[i]]
         results = renderer.render(verts =points[i].cpu().numpy(),faces = faces,
-                                       cam_rot = np.eye(3), cam_t = [0, 0, 0], bg_img_rgb = img,
-                                       missingframe = missingframe)
+                                       cam_rot = np.eye(3), cam_t = [0, 0, 0], bg_img_rgb = img )
 
         if obtainSil:
             proj_masks.append(results['mask'])

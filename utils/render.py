@@ -29,7 +29,7 @@ class Renderer(object):
         self.right_faces = range(1, 2991, 2)
         self.left_faces = range(0, 2990, 2)
 
-    def render(self, verts, faces, bg_img_rgb=None, bg_color=(0, 0, 0, 0),cam_rot = None, cam_t = None, missingframe= False):
+    def render(self, verts, faces, bg_img_rgb=None, bg_color=(0, 0, 0, 0),cam_rot = None, cam_t = None):
         '''
         Args:
             verts: [N, 3]
@@ -68,12 +68,8 @@ class Renderer(object):
             mesh = pyrender.Mesh.from_trimesh(mesh, material=material, wireframe=False)
         else:
             colors_faces = np.zeros_like(mesh.faces)
-            if missingframe:
-                colors_faces[self.left_faces, :] =np.array([0.08, 0.08,0.08])*255.
-                colors_faces[self.right_faces, :] = np.array([0.09,0.09,0.09])*255.
-            else:
-                colors_faces[self.left_faces, :] = np.array([0.654, 0.396, 0.164])*255.
-                colors_faces[self.right_faces, :] = np.array([.7, .7, .7])*255.
+            colors_faces[self.left_faces, :] = np.array([0.654, 0.396, 0.164])*255.
+            colors_faces[self.right_faces, :] = np.array([.7, .7, .7])*255.
             mesh.visual.face_colors = colors_faces  # np.random.uniform(size=mesh.faces.shape)
             mesh = pyrender.Mesh.from_trimesh(mesh, smooth=False)
         scene.add(mesh, 'mesh')

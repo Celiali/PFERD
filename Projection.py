@@ -58,25 +58,28 @@ def projection(ID=1, mocapname = '20201128_ID_1_0008', cameraID = None, start=No
 
         imgs = get_imgs(vlist, i , dis = None)
         missingframe = True if i*interval in resultsdata['missing_frame'] else False
-        proj_masks = reproject_masks(vertex = points, faces = faces, renderer_list = renderer_list, cams_list = cams_list, cameraID = cameraID, imgs = imgs, missingframe = missingframe, obtainSil=False)
-        marker3d = mocapdata.markers[i*interval,...]
-
-        proj_kpts = reproject_keypoints(marker3d, cams_list, cameraID = cameraID)
-
-        for index in range(len(vlist)):
+        if missingframe:
+            proj_masks = [imgs[i_t, :, :, ::-1] for i_t in range(imgs.shape[0])]  # = imgs[i, :, :, ::-1].copy()
+        else:
+            proj_masks = reproject_masks(vertex = points, faces = faces, renderer_list = renderer_list, cams_list = cams_list, cameraID = cameraID, imgs = imgs, obtainSil=False)
             if VISUAL_MOCAP:
-                for t in range(proj_kpts.shape[1]):
-                    if t in selected_marker_labels_left:
-                        color = (255,0,0)
-                    elif t in selected_marker_labels_right:
-                        color = (0,0,255)
-                    elif t in selected_marker_labels_middle:
-                        color = (0,255,0)
-                    cv2.circle(proj_masks[index], (int(proj_kpts[index, t, 0]), int(proj_kpts[index, t, 1])), radius=3,color=color, thickness=-1)
-            cv2.putText(proj_masks[index], sorted(list(cams_list.keys()))[index], (100, 100), cv2.FONT_HERSHEY_COMPLEX, 2.,(255, 0, 0), 3)
+                marker3d = mocapdata.markers[i*interval,...]
+                proj_kpts = reproject_keypoints(marker3d, cams_list, cameraID = cameraID)
+
+            for index in range(len(vlist)):
+                if VISUAL_MOCAP:
+                    for t in range(proj_kpts.shape[1]):
+                        if t in selected_marker_labels_left:
+                            color = (255,0,0)
+                        elif t in selected_marker_labels_right:
+                            color = (0,0,255)
+                        elif t in selected_marker_labels_middle:
+                            color = (0,255,0)
+                        cv2.circle(proj_masks[index], (int(proj_kpts[index, t, 0]), int(proj_kpts[index, t, 1])), radius=3,color=color, thickness=-1)
+                cv2.putText(proj_masks[index], sorted(list(cams_list.keys()))[index], (100, 100), cv2.FONT_HERSHEY_COMPLEX, 2.,(255, 0, 0), 3)
 
         if cameraID is not None:
-            imgs_all =  proj_masks[0][int(min(proj_kpts[0,:,1])): int(max(proj_kpts[0,:,1])), int((min(proj_kpts[0,:,0]))): int(max(proj_kpts[0,:,0])),:]
+            imgs_all =  proj_masks[0]
         else:
             imgs_all = np.vstack([np.hstack([proj_masks[i] for i in range(5)]), np.hstack([proj_masks[i] for i in range(5,10)])])
 
