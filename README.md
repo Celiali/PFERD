@@ -1,8 +1,8 @@
-# DenseMocap Dataset
+# PFERD: The Poses For Equine Research Dataset
 
 ![front](front.jpg)
 
-A dataset of horse motion capture in outdoor environments. The data can be accessed on [GoogleDrive](https://test.com). This repository provides example codes to visualize the data and evaluate the data.
+PFERD, a dense motion capture dataset of horses of diverse conformation and poses with rich 3D horse articulated motion data. The data can be accessed on [GoogleDrive](https://drive.google.com/drive/folders/1OVq-4uJ79DtydNQxpo6EtZHnrWOZhd6O?usp=sharing). This repository provides example codes to visualize the data and evaluate the data.
 
 ## Installation
 
@@ -10,8 +10,8 @@ A dataset of horse motion capture in outdoor environments. The data can be acces
 git clone --recurse-submodules https://github.com/Celiali/test.git
 
 # 1. Create a conda virtual environment.
-conda create -n DenseMocap python=3.7
-conda activate DenseMocap
+conda create -n PFERD python=3.7
+conda activate PFERD
 
 pip install torch==1.8.2 torchvision==0.9.2 torchaudio==0.8.2 --extra-index-url https://download.pytorch.org/whl/lts/1.8/cu111
 pip install opencv-python==4.7.0.72
@@ -31,7 +31,7 @@ pip install git+https://github.com/nghorbani/human_body_prior.git@SOMA
 pip install git+https://github.com/nghorbani/body_visualizer.git
 ```
 
-The codes are tested in Python3.7, Pytorch 1.8.2, Aitviewer v1.9.0 for Ubuntu 18.0
+The codes are tested in Python3.7, Pytorch 1.8.2, Aitviewer v1.9.0 for Ubuntu 18.0.
 
 Installation of `psbody.smpl` and `psbody.mesh`, please check [SOMA](https://github.com/nghorbani/soma).
 
@@ -40,10 +40,11 @@ Installation of `psbody.smpl` and `psbody.mesh`, please check [SOMA](https://git
 You need to download [the hSMAL model](https://sites.google.com/view/cv4horses/cv4horses) and place it under `./hSMALdata` folder.
 
 ## Fetch dataset 
-You need to download [the DenseMocap dataset](https://sites.google.com/view/cv4horses/cv4horses) and follow directory structure of the data as below.
+You need to download [the PFERD dataset](https://drive.google.com/drive/folders/1OVq-4uJ79DtydNQxpo6EtZHnrWOZhd6O?usp=sharing) and follow directory structure of the data as below. We provide a demo folder in the shared link.
 ```
 |--dataset
-    |--[User ID]
+    |--DEMO
+    |--[Subject ID]
         |-- C3D_DATA
             |--  [Trial Name].c3d
         |-- CAM_DATA
@@ -55,7 +56,7 @@ You need to download [the DenseMocap dataset](https://sites.google.com/view/cv4h
                 |-- [Trial Name]_[Camera Code]_2Dkp.npz
         |--MODEL_DATA
             |-- [Trial Name]_hsmal.npz
-            |-- [User ID]_stagei.npz
+            |-- [Subject ID]_stagei.npz
         |--SEGMENT_DATA
             |-- [Trial Name]_[Camera Code]_seg.mp4
         |--VIDEO_DATA
@@ -79,27 +80,30 @@ Camera_Miqus_Video_[Camera ID].npz :
 ```
 
 ```angular2html
-[User ID]_stagei.npz :
+[Subject ID]_stagei.npz :
 'betas': beta parameters,  'marker_latent': the latent representation of the optimized marker positions, 'labels': names of the markers, 'flag': markers visible during Stage I optimization   
 ```
 
 ## Run demo code
 
+- Update file path in ```CONFIG.py```.
+
+
 - Loading c3d files and the hSMAL model with the captured parameters to visualize the mocap data and the fitted results.
   
 ```angular2html
-python Load_Visualization.py --ID 1 --mocapname '20201128_ID_1_0004' --VISUAL_MOCAP
+python Load_Visualization.py --ID 1 --mocapname '20201128_ID_1_0008' --VISUAL_MOCAP
 ```
 
 - Projecting the reconstructed model in image planes with provided camera information.
 ```angular2html
-python Projection.py --ID 1 --mocapname '20201128_ID_1_0004' --cameraID '20715' --VISUAL --VISUAL_MOCAP
+python Projection.py --ID 1 --mocapname '20201128_ID_1_0008' --cameraID '20715' --VISUAL --VISUAL_MOCAP
 ```  
 
 - Quantitative evaluation using the mocap data and silhouette subsets.
 ```angular2html
-python Eval_iou.py --ID 1 --mocapname '20201128_ID_1_0004' --VISUAL
-python Eval_3Ddistance.py --ID 1 --mocapname '20201128_ID_1_0004' --VISUAL
+python Eval_iou.py --ID 1 --mocapname '20201128_ID_1_0008' --VISUAL
+python Eval_3Ddistance.py --ID 1 --mocapname '20201128_ID_1_0008' --VISUAL
 ```
 
 
