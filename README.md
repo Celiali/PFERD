@@ -92,18 +92,18 @@ Camera_Miqus_Video_[Camera ID].npz :
 - Loading c3d files and the hSMAL model with the captured parameters to visualize the mocap data and the fitted results.
   
 ```angular2html
-python Load_Visualization.py --ID 1 --mocapname '20201128_ID_1_0008' --VISUAL_MOCAP
+python Load_Visualization.py --ID 1 --mocapname '20201128_ID_1_0007' --VISUAL_MOCAP
 ```
 
 - Projecting the reconstructed model in image planes with provided camera information.
 ```angular2html
-python Projection.py --ID 1 --mocapname '20201128_ID_1_0008' --cameraID '20715' --VISUAL --VISUAL_MOCAP
+python Projection.py --ID 1 --mocapname '20201128_ID_1_0007' --cameraID '20715' --VISUAL --VISUAL_MOCAP
 ```  
 
 - Quantitative evaluation using the mocap data and silhouette subsets.
 ```angular2html
-python Eval_iou.py --ID 1 --mocapname '20201128_ID_1_0008' --VISUAL
-python Eval_3Ddistance.py --ID 1 --mocapname '20201128_ID_1_0008' --VISUAL
+python Eval_iou.py --ID 1 --mocapname '20201128_ID_1_0007' --VISUAL
+python Eval_3Ddistance.py --ID 1 --mocapname '20201128_ID_1_0007' --VISUAL
 ```
 
 
