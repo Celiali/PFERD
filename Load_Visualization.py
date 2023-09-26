@@ -65,6 +65,8 @@ def Load_Visualization(ID=1, mocapname='20201128_ID_1_0008', start=None, end = N
         data,_ = read_mocap(mocapfile)
         mocapdata = data.markers.copy()
         mocapdata = mocapdata[start:end, ...]
+        # invisible marker set to nan for not displaying
+        mocapdata[mocapdata == 0] = np.nan
         assert mocapdata.shape[0] == poses.shape[0] == trans.shape[0] == betas.shape[0]
         ptc_mocap = Spheres(mocapdata[id_,...],color=(149 / 255, 85 / 255, 149 / 255, 0.5), radius=0.05,rotation=np.array([[1, 0, 0], [0, 0, 1], [0, -1, 0]]),
                             enabled_frames=enabled_frames,)
@@ -84,7 +86,7 @@ def parse_augment():
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("--ID", type=int, default=1)
-    parser.add_argument("--mocapname", type=str, default='20201128_ID_1_0008')
+    parser.add_argument("--mocapname", type=str, default='20201128_ID_1_0007')
     parser.add_argument("--start", type=int, default=None)
     parser.add_argument("--end", type=int, default=None)
     parser.add_argument("--downSample", type=int, default=8, help='mocap framerate 240hz, downsample the mocap data')

@@ -59,7 +59,7 @@ def projection(ID=1, mocapname = '20201128_ID_1_0008', cameraID = None, start=No
         imgs = get_imgs(vlist, i , dis = None)
         missingframe = True if i*interval in resultsdata['missing_frame'] else False
         if missingframe:
-            proj_masks = [imgs[i_t, :, :, ::-1] for i_t in range(imgs.shape[0])]  # = imgs[i, :, :, ::-1].copy()
+            proj_masks = [imgs[i_t, :, :, ::-1] for i_t in range(imgs.shape[0])]
         else:
             proj_masks = reproject_masks(vertex = points, faces = faces, renderer_list = renderer_list, cams_list = cams_list, cameraID = cameraID, imgs = imgs, obtainSil=False)
             if VISUAL_MOCAP:
@@ -94,7 +94,7 @@ def parse_augment():
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("--ID", type=int, default=1)
-    parser.add_argument("--mocapname", type=str, default='20201128_ID_1_0008')
+    parser.add_argument("--mocapname", type=str, default='20201128_ID_1_0007')
     parser.add_argument("--cameraID", type=str, default=None, help='None, 20715, 21386, 23348, 23350, 23414, 23415, 23416, 23417, 23603, 23604')
     parser.add_argument("--start", type=int, default=None)
     parser.add_argument("--end", type=int, default=None)

@@ -102,7 +102,7 @@ def parse_augment():
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("--ID", type=int, default=1)
-    parser.add_argument("--mocapname", type=str, default='20201128_ID_1_0008')
+    parser.add_argument("--mocapname", type=str, default='20201128_ID_1_0007')
     parser.add_argument('--VISUAL', action='store_true', help='Whether visualizing')
     args = parser.parse_args()
     return args
