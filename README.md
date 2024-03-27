@@ -1,4 +1,4 @@
-# PFERD: The Poses For Equine Research Dataset
+# PFERD: Poses For Equine Research Dataset
 
 ![front](front.jpg)
 
