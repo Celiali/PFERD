@@ -1,4 +1,4 @@
-# PFERD: Poses For Equine Research Dataset
+# The Poses for Equine Research Dataset (PFERD)
 
 ![front](front.jpg)
 
@@ -7,7 +7,7 @@ PFERD, a dense motion capture dataset of horses of diverse conformation and pose
 ## Installation
 
 ``` bash
-git clone --recurse-submodules https://github.com/Celiali/test.git
+git clone --recurse-submodules https://github.com/Celiali/PFERD.git
 
 # 1. Create a conda virtual environment.
 conda create -n PFERD python=3.7
