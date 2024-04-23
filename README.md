@@ -118,6 +118,13 @@ License for the hSMAL Model: Please read carefully the [terms and conditions](ht
 
 License for the PFERD Dataset: Please read carefully the [terms and conditions](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/2EXONE&version=1.0&selectTab=termsTab) before you download and/or use the data.
 
+License for this code: This code is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+- **Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made.
+- **NonCommercial** — You may not use the material for commercial purposes.
+- **ShareAlike** — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
+
+Full license text available at: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+
 ## Acknowledgements
 The project was supported by a career grant from SLU No. 57122058, received by Elin Hernlund. 
 Silvia Zuffi was in part supported by the European Commission’s NextGeneration EU Programme, PNRR grant PE0000013 Future Artificial Intelligence Research—FAIR CUP B53C22003630006. 
