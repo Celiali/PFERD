@@ -6,7 +6,7 @@ import colorsys
 
 class Renderer(object):
     """
-    Code adapted from https://github.com/haofanwang/CLIFF
+    Code adapted from https://github.com/vchoutas/smplify-x and https://github.com/haofanwang/CLIFF
     """
     def __init__(self, focal_length_x=600, focal_length_y = None, img_w=512, img_h=512,same_mesh_color=False, camera_center = None):
         os.environ['PYOPENGL_PLATFORM'] = 'egl'

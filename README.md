@@ -1,10 +1,17 @@
 # The Poses for Equine Research Dataset (PFERD)
 
+This repository is the official PyTorch codes of: 
+
+The Poses for Equine Research Dataset (PFERD) \
+Ci Li, Ylva Mellbin, Johanna Krogager, Senya Polikovsky, Martin Holmberg, Nima Ghorbani, Michael J. Black, Hedvig Kjellström, Silvia Zuffi and Elin Hernlund
+
 ![front](front.jpg)
 
-PFERD, a dense motion capture dataset of horses of diverse conformation and poses with rich 3D horse articulated motion data. The data can be accessed on [GoogleDrive](https://drive.google.com/drive/folders/1OVq-4uJ79DtydNQxpo6EtZHnrWOZhd6O?usp=sharing). This repository provides example codes to visualize the data and evaluate the data.
+PFERD, a dense motion capture dataset of horses of diverse conformation and poses with rich 3D horse articulated motion data. This repository provides codes to visualize the data and evaluate the data.
 
 ## Installation
+
+The codes are tested in Python3.7, Pytorch 1.8.2, Aitviewer v1.9.0 for Ubuntu 18.0. Below we prepare the python environment using Anaconda.
 
 ``` bash
 git clone --recurse-submodules https://github.com/Celiali/PFERD.git
@@ -31,16 +38,16 @@ pip install git+https://github.com/nghorbani/human_body_prior.git@SOMA
 pip install git+https://github.com/nghorbani/body_visualizer.git
 ```
 
-The codes are tested in Python3.7, Pytorch 1.8.2, Aitviewer v1.9.0 for Ubuntu 18.0.
-
 Installation of `psbody.smpl` and `psbody.mesh`, please check [SOMA](https://github.com/nghorbani/soma).
 
 
-## Fetch model
-You need to download [the hSMAL model](https://sites.google.com/view/cv4horses/cv4horses) and place it under `./hSMALdata` folder.
+## Access to the hSMAL Model
+The hSMAL model is available at this [link](https://sites.google.com/view/cv4horses/cv4horses).
+Download the hSMAL model and place it under `./hSMALdata` folder.
 
-## Fetch dataset 
-You need to download [the PFERD dataset](https://drive.google.com/drive/folders/1OVq-4uJ79DtydNQxpo6EtZHnrWOZhd6O?usp=sharing) and follow directory structure of the data as below. We provide a demo folder in the shared link.
+## Access to the PFERD Dataset 
+The dataset for PFERD is available at [https://doi.org/10.7910/DVN/2EXONE](https://doi.org/10.7910/DVN/2EXONE).
+Download the PFERD dataset, place it under `./dataset` folder and follow the directory structure of the data as below. We also provide a demo folder in the link.
 ```
 |--dataset
     |--DEMO
@@ -102,12 +109,20 @@ python Projection.py --ID 1 --mocapname '20201128_ID_1_0007' --cameraID '20715' 
 
 - Quantitative evaluation using the mocap data and silhouette subsets.
 ```angular2html
-python Eval_iou.py --ID 1 --mocapname '20201128_ID_1_0007' --VISUAL
 python Eval_3Ddistance.py --ID 1 --mocapname '20201128_ID_1_0007' --VISUAL
+python Eval_iou.py --ID 1 --mocapname '20201128_ID_1_0007' --VISUAL
 ```
 
+## License
+License for the hSMAL Model: Please read carefully the [terms and conditions](https://sites.google.com/view/cv4horses/license?authuser=0) before you download and/or use the data.
+
+License for the PFERD Dataset: Please read carefully the [terms and conditions](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/2EXONE&version=1.0&selectTab=termsTab) before you download and/or use the data.
 
 ## Acknowledgements
+The project was supported by a career grant from SLU No. 57122058, received by Elin Hernlund. 
+Silvia Zuffi was in part supported by the European Commission’s NextGeneration EU Programme, PNRR grant PE0000013 Future Artificial Intelligence Research—FAIR CUP B53C22003630006. 
+The authors sincerely thank Tove Kjellmark for her assistance during the data collection and all horses and owners for their collaboration in the data collection experiments. Thank you to Zala Zgank for helping with the labeling of motion capture data.
+
 Thank Peter Kulits for providing interface for [Aitviewer](https://github.com/eth-ait/aitviewer). 
 This work is based on [moshpp](https://github.com/nghorbani/moshpp).
 Thanks for the authors for their efforts. 
