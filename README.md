@@ -5,6 +5,10 @@ This repository is the official PyTorch codes of:
 The Poses for Equine Research Dataset (PFERD) \
 Ci Li, Ylva Mellbin, Johanna Krogager, Senya Polikovsky, Martin Holmberg, Nima Ghorbani, Michael J. Black, Hedvig Kjellström, Silvia Zuffi and Elin Hernlund
 
+In Scientific Data 2024
+
+[Paper](https://www.nature.com/articles/s41597-024-03312-1)
+
 ![front](front.jpg)
 
 PFERD, a dense motion capture dataset of horses of diverse conformation and poses with rich 3D horse articulated motion data. This repository provides codes to visualize the data and evaluate the data.
@@ -49,26 +53,33 @@ Download the hSMAL model and place it under `./hSMALdata` folder.
 The dataset for PFERD is available at [https://doi.org/10.7910/DVN/2EXONE](https://doi.org/10.7910/DVN/2EXONE).
 Download the PFERD dataset, place it under `./dataset` folder and follow the directory structure of the data as below. We also provide a demo folder in the link.
 ```
-|--dataset
-    |--DEMO
-    |--[Subject ID]
+|-- dataset
+    |-- DEMO
+    |-- [Subject ID]
         |-- C3D_DATA
             |--  [Trial Name].c3d
         |-- CAM_DATA
             |-- Camera_Miqus_Video_[Camera ID].npz
-        |--FBX_DATA
+        |-- FBX_DATA
             |-- [Trial Name].fbx
-        |--KP2D_DATA
+        |-- KP2D_DATA
             |-- [Trial Name]
                 |-- [Trial Name]_[Camera Code]_2Dkp.npz
-        |--MODEL_DATA
+        |-- MODEL_DATA
             |-- [Trial Name]_hsmal.npz
             |-- [Subject ID]_stagei.npz
-        |--SEGMENT_DATA
+        |-- SEGMENT_DATA
             |-- [Trial Name]_[Camera Code]_seg.mp4
-        |--VIDEO_DATA
+        |-- VIDEO_DATA
             |-- [Trial Name]
                 |-- [Trial Name]_[Camera Code].avi
+```
+
+To download video data for each Subject ID, follow these steps: 1. Download all parts of the split files and place them in a single folder; 2.Merge and extract the data with the following commands; 3. Place the data according to the above data structure.
+```angular2html
+cd /path/to/downloaded/split_files/Subject ID  # Replace Subject ID with the actual ID
+cat VIDEO_DATA.tar.gz.part-* > VIDEO_DATA_recovered.tar.gz
+tar -xzf VIDEO_DATA_recovered.tar.gz
 ```
 
 Data structure
@@ -133,3 +144,18 @@ The authors sincerely thank Tove Kjellmark for her assistance during the data co
 Thank Peter Kulits for providing interface for [Aitviewer](https://github.com/eth-ait/aitviewer). 
 This work is based on [moshpp](https://github.com/nghorbani/moshpp).
 Thanks for the authors for their efforts. 
+
+## Citation
+If you find this code useful for your research or use the dataset, please consider citing the following paper:
+```
+@article{li2024poses,
+  title={The Poses for Equine Research Dataset (PFERD)},
+  author={Li, Ci and Mellbin, Ylva and Krogager, Johanna and Polikovsky, Senya and Holmberg, Martin and Ghorbani, Nima and Black, Michael J and Kjellstr{\"o}m, Hedvig and Zuffi, Silvia and Hernlund, Elin},
+  journal={Scientific Data},
+  volume={11},
+  number={1},
+  pages={497},
+  year={2024},
+  publisher={Nature Publishing Group UK London}
+}
+```
