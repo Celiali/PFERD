@@ -81,7 +81,7 @@ def eval_iou(ID=1, mocapname = '20201128_ID_1_0008', VISUAL = True):
                 body_parms['pose_body'] = body_parms['poses'][:, 3:]
                 body_pose = bm(**body_parms)
                 points = body_pose.v[0].cpu().data.numpy()
-                proj_masks = reproject_masks(points, faces, renderer_list, cams_list, cameraID = cams_selected, imgs = None, missingframe = False, obtainSil=True)[0]
+                proj_masks = reproject_masks(points, faces, renderer_list, cams_list, cameraID = cams_selected, imgs = None,  obtainSil=True)[0]
                 FLAG = True
             if FLAG:
                 iou = cal_iou(proj_masks, gt_masks)
