@@ -79,15 +79,6 @@ def eval_3ddistance(ID=1, mocapname = '20201128_ID_1_0008', VISUAL = True):
             mv.set_dynamic_lines([ll])
 
     print('nanmean',np.nanmean(data))
-    print('nanmedian',np.nanmedian(data))
-    nanmax_index = np.where(data == np.nanmax(data))
-    print('nanmax', np.nanmax(data), 'nanmax_markers', latent_labels[nanmax_index[1][0]])
-    nanmin_index = np.where(data == np.nanmin(data))
-    print('nanmin', np.nanmin(data), 'nanmin_markers', latent_labels[nanmin_index[1][0]])
-    marker_each = np.nanmean(data, axis=0)
-    markers_not_observed_in_stageI = [stageIdata['labels'][~stageIdata['flag'].astype(bool)], marker_each[~stageIdata['flag'].astype(bool)]]
-    print(markers_not_observed_in_stageI)
-    print(marker_each)
 
 def parse_augment():
     import argparse
