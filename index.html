@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<!--  <meta name="description"-->
+<!--        content="PFERD, a dense motion capture dataset of horses of diverse conformations and poses with rich 3D articulated motion data. ">-->
+<!--  <meta name="keywords" content="approach-constrained,parallel-jaw,generative model">-->
+<!--  <meta name="viewport" content="width=device-width, initial-scale=1">-->
+  <title>The Poses for Equine Research Dataset (PFERD)</title>
+
+<!--  <meta property="og:image" content="resources/teasesr.jpg"/>-->
+<!--	<meta property="og:title" content="The Poses for Equine Research Dataset (PFERD)" />-->
+<!--	<meta property="og:description" content="PFERD, a dense motion capture dataset of horses of diverse conformations and poses with rich 3D articulated motion data. " />-->
+<!--  &lt;!&ndash; Twitter automatically scrapes this. Go to https://cards-dev.twitter.com/validator?-->
+<!--      if you update and want to force Twitter to re-scrape. &ndash;&gt;-->
+<!--  <meta property="twitter:card"          content="summary" />-->
+<!--  <meta property="twitter:title"         content="The Poses for Equine Research Dataset (PFERD)" />-->
+<!--  <meta property="twitter:description"   content="PFERD, a dense motion capture dataset of horses of diverse conformations and poses with rich 3D articulated motion data. " />-->
+<!--  <meta property="twitter:image"         content="resources/teaser.jpg" />-->
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VFNFH9CKNX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-VFNFH9CKNX');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <!-- <link rel="stylesheet" href="./static/css/bulma-carousel.min.css"> -->
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <!-- <script src="./static/js/bulma-carousel.min.js"></script> -->
+  <!-- <script src="./static/js/bulma-slider.min.js"></script> -->
+  <!-- <script src="./static/js/index.js"></script> -->
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+      </div>
+      <br>
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-3 publication-title" style="font-size: 2.2rem;">The Poses for Equine Research Dataset (PFERD)</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://www.kth.se/profile/cil">Ci Li</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://orcid.org/0009-0006-8801-343X">Ylva Mellbin</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              Johanna Krogager<sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://is.mpg.de/person/senya">Senya Polikovsky</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://orcid.org/0009-0000-1363-9274">Martin Holmberg</a><sup>4</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://nghorbani.github.io/">Nima Ghorbani</a><sup>5,*</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://ps.is.mpg.de/person/black">Michael J. Black</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.kth.se/profile/hedvig">Hedvig Kjellström</a><sup>1,2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://imati.cnr.it/mypage.php?idk=PG-2">Silvia Zuffi</a><sup>6</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.slu.se/en/ew-cv/elin-hernlund/">Elin Hernlund</a><sup>2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup> KTH, Sweden;<sup>2</sup>SLU, Sweden;<sup>3</sup> MPI-IS, Germany;</span> <sup>4</sup> Qualisys, Sweden;</span><br>
+            <sup>5</sup> Sporttotal, Germany;</span><sup>6</sup> IMATI-CNR, Italy</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Scientific Data, 2024 </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block" style="font-size: 0.8em;">* This work was done while the author was at MPI-IS.</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://www.nature.com/articles/s41597-024-03312-1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/Celiali/PFERD"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <span class="link-block">
+                <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/2EXONE"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Data</span>
+                </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+<!--      <img id="teaser-image" src="resources/teaser.jpg" alt="3D motion of a horse" height="100%">-->
+      <video id="teaser" autoplay controls muted preload loop playsinline>
+            <source src="resources/teaser.mp4"
+                    type="video/mp4">
+      </video>
+      <h2 class="subtitle">
+        PFERD, a dense motion capture dataset of horses of diverse conformations and poses with rich 3D articulated motion data.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+              Studies of quadruped animal motion help us to identify diseases, understand behavior and unravel the mechanics behind gaits in animals. The horse is likely the best-studied animal in this aspect, but data capture is challenging and time-consuming. Computer vision techniques improve animal motion extraction, but the development relies on reference datasets, which are scarce, not open-access and often provide data from only a few anatomical landmarks. Addressing this data gap, we introduce PFERD, a video and 3D marker motion dataset from horses using a full-body set-up of densely placed over 100 skin-attached markers and synchronized videos from ten camera angles. Five horses of diverse conformations provide data for various motions from basic poses (eg. walking, trotting) to advanced motions (eg. rearing, kicking). We further express the 3D motions with current techniques and a 3D parameterized model, the hSMAL model, establishing a baseline for 3D horse markerless motion capture. PFERD enables advanced biomechanical studies and provides a resource of ground truth data for the methodological development of markerless motion capture.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+    <br>
+
+    <!--/ Qualisys. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="content has-text-centered">
+        <h2 class="title is-3">Qualisys System Setup</h2>
+        <div class="content has-text-justified">
+          <p>
+          Recording scenario with 56 mocap cameras and ten color cameras using Qualisys system. The system recognizes the markers and the orange lines are connections between the markers.
+          </p>
+        </div>
+        <video id="system-image" autoplay controls muted preload loop playsinline>
+            <source src="resources/qualisys_compress2.mp4"
+                    type="video/mp4">
+      </video>
+<!--      <img id="system-image" src="resources/scene.png" alt="Qualisys Setup" height="100%">-->
+        </div>
+    </div>
+    <br>
+    <!--/ Qualisys. -->
+
+    <div class="columns is-centered has-text-centered">
+      <div class="content has-text-centered">
+        <h2 class="title is-3">Study Subjects</h2>
+        <div class="content has-text-justified">
+          <p>
+            Five horses with over 100 skin-attached motion capture markers were used in the study.
+          </p>
+        </div>
+        <img id="horse-image" src="resources/horse.png" alt="Horse Subject" height="100%">
+<!--        <p class="caption">Figure 2: Horse with motion capture markers attached.</p>-->
+      </div>
+    </div>
+    <br>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="content has-text-centered">
+        <h2 class="title is-3">Example Motions</h2>
+
+      <video id="horse-like1" autoplay controls muted preload loop playsinline>
+            <source src="resources/walk_compress.mp4"
+                    type="video/mp4">
+      </video>
+
+      <video id="horse-like2" autoplay controls muted preload loop playsinline>
+            <source src="resources/piaff_compress.mp4"
+                    type="video/mp4">
+      </video>
+
+      <video id="horse-like3" autoplay controls muted preload loop playsinline>
+          <source src="resources/piruette_compress.mp4"
+                  type="video/mp4">
+      </video>
+
+      <video id="horse-like4" autoplay controls muted preload loop playsinline>
+          <source src="resources/rear_compress.mp4"
+                  type="video/mp4">
+      </video>
+
+      <video id="horse-like5" autoplay controls muted preload loop playsinline>
+          <source src="resources/kick_compress.mp4"
+                  type="video/mp4">
+      </video>
+
+      <video id="horse-like6" autoplay controls muted preload loop playsinline>
+            <source src="resources/sit_compress.mp4"
+                    type="video/mp4">
+      </video>
+      </div>
+    </div>
+    <br>
+        <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/b_Ns8Hf5-Pw?si=xxu1v037BTPnjNov" title="The Poses for Equine Research Dataset (PFERD)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+      @article{li2024poses,
+        title={The Poses for Equine Research Dataset (PFERD)},
+        author={Li, Ci and Mellbin, Ylva and Krogager, Johanna and Polikovsky, Senya and Holmberg, Martin and Ghorbani, Nima and Black, Michael J and Kjellstr{\"o}m, Hedvig and Zuffi, Silvia and Hernlund, Elin},
+        journal={Scientific Data},
+        volume={11},
+        number={1},
+        pages={497},
+        year={2024},
+        publisher={Nature Publishing Group UK London}
+      }
+    </code></pre>
+  </div>
+</section>
+
+<!-- <section class="section" id="Acknowledgements"> -->
+  <!-- <div class="container is-max-desktop content"> -->
+    <!-- <h2 class="title">Acknowledgements</h2> -->
+    <!-- <p> -->
+      <!-- xxx. -->
+    <!-- </p> -->
+    <!-- <p> -->
+      <!-- xxx. -->
+    <!-- </p> -->
+  <!-- </div> -->
+<!-- </section> -->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This webpage template is adapted from <a
+            href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
